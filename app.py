@@ -144,7 +144,7 @@ st.caption("🔴 **Rot gestrichelt:** Die unumgängliche Ausweichroute über Fre
 st.divider()
 
 # 8. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
-st.header("🛑 Unterstützen Sie unsere Petition, damit nicht beide Brücken gleichzeitig zur Sanierung komplett gesperrt werden (B 505 & Kanalbrücke Hirschaid (St 2260)!")
+st.header("🛑 Damit nicht beide Brücken gleichzeitig gesperrt werden (B 505 & Kanalbrücke Hirschaid (St 2260)!")
 st.header("✍️ Jetzt handeln – Rechtswirksam unterschreiben!")
 
 st.error("""
