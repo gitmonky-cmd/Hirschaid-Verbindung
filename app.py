@@ -26,7 +26,7 @@ st.divider()
 st.header("⚠️ Warum aktiv werden? Das müssen Sie wissen:")
 
 st.info("""
-👉 **Wer plant hier eigentlich?**
+👉 **Wer plant hier eigentlich, wann welche Brücke gesperrt wird?**
 * ❌ **Nicht Hirschaid entscheidet:** Weder der Bürgermeister noch der Gemeinderat haben hier die Planungsgewalt.
 * 🏛️ **Das Staatliche Bauamt ist am Zug:** Die Landesbehörde muss die gealterten Brücken sanieren – blickt dabei aber oft nur auf die eigenen Baustellen.
 * ✍️ **Ihre Unterschrift wirkt oben:** Nur über den **Bayerischen Landtag** können wir das Bauamt verpflichten, Koppelungsverbote und Behelfsbrücken verbindlich einzuplanen!
