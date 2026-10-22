@@ -143,7 +143,8 @@ st.caption("🔴 **Rot gestrichelt:** Die unumgängliche Ausweichroute über Fre
 
 st.divider()
 
-# 8. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
+# 8. NEUER APPELL-HEADER & HANDLUNGSAUFFORDERUNG
+st.header("🛑 Unterstützen Sie unsere Petition, damit nicht beide Wege gleichzeitig versperrt werden (B 505 & St 2244)!")
 st.header("✍️ Jetzt handeln – Rechtswirksam unterschreiben!")
 
 st.error("""
