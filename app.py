@@ -1,16 +1,17 @@
 import streamlit as st
+import folium
+from streamlit_folium import st_folium
 
-# Seitenkonfiguration
+# 1. SEITENKONFIGURATION
 st.set_page_config(
     page_title="Stau- & Kostenrechner Hirschaid-West",
     page_icon="🚗",
     layout="centered"
 )
 
-# Aktueller Aufhänger
+# 2. AKTUELLER AUFHÄNGER & MOTTO
 st.warning("🚨 **AKTUELLE MELDUNG:** Vom 26.10. bis 26.11.2026 finden bereits Bohrarbeiten mit halbseitiger Sperrung auf der Kanalbrücke statt! Die Vorbereitungen für die Großsanierung laufen.")
 
-# Titel & Wachrüttler-Motto
 st.title("Sagt hinterher nicht, keiner hätte gewusst, was auf uns zukommt!")
 st.subheader("Wenn Kanalbrücke & B 505 gleichzeitig saniert werden, steht der Hirschaider Westen still.")
 
@@ -21,7 +22,7 @@ Köttmannsdorf, Rothensand und Altendorf. Der Umweg über Frensdorf bedeutet mas
 
 st.divider()
 
-# Eingabeformular
+# 3. RECHNER (EINGABEFORMULAR)
 st.header("🧮 Berechne dein Stau- & Kostenrisiko")
 
 col1, col2 = st.columns(2)
@@ -52,7 +53,7 @@ stunden_jahr = (zeitverlust_tag * tage_jahr) / 60
 
 st.divider()
 
-# Ergebnisse anzeigen
+# 4. ERGEBNISSE ANZEIGEN
 st.header("📊 Deine Ergebnisse (Mehrbelastung bei Vollsperrung)")
 
 k1, k2, k3 = st.columns(3)
@@ -64,7 +65,60 @@ st.warning(f"⚠️ **Hochrechnung für ein Baujahr:** Du fährst ca. **{gesamte
 
 st.divider()
 
-# Handlungsaufforderung & Unterschriften-Hinweis
+# 5. KARTEN-VISUALISIERUNG
+st.header("🗺️ Die Umleitungsstrecke & Nadelöhre im Überblick")
+
+# Kartenzentrum
+m = folium.Map(location=[49.835, 10.915], zoom_start=11, tiles="OpenStreetMap")
+
+# Marker 1: Sperrung Kanalbrücke St 2244
+folium.Marker(
+    location=[49.8168, 10.9835],
+    popup="<b>SPERRUNG / SONDIERUNG:</b><br>Kanalbrücke St 2244 Hirschaid",
+    tooltip="🚨 Nadelöhr 1: Kanalbrücke St 2244",
+    icon=folium.Icon(color="red", icon="warning-sign")
+).add_to(m)
+
+# Marker 2: Sperrung/Engpass B 505
+folium.Marker(
+    location=[49.8250, 10.9480],
+    popup="<b>BAUSTELLE / ENG PASS:</b><br>B 505 (Auffahrt / Brücken)",
+    tooltip="🚨 Nadelöhr 2: B 505 / Anschlussstelle",
+    icon=folium.Icon(color="orange", icon="warning-sign")
+).add_to(m)
+
+# Umleitungspunkte
+umleitung_punkte = [
+    [49.8083, 10.9540],  # Erlach / Juliushof
+    [49.7990, 10.9268],  # Röbersdorf
+    [49.7942, 10.8852],  # Herrnsdorf
+    [49.8159, 10.8661],  # Frensdorf
+    [49.8674, 10.9052],  # Bug
+    [49.8988, 10.9028]   # Bamberg Zentrum
+]
+
+# Umleitungs-Linie (Rot gestrichelt)
+folium.PolyLine(
+    locations=umleitung_punkte,
+    color="red",
+    weight=5,
+    opacity=0.8,
+    dash_array="10",
+    tooltip="Ausweichroute für L6e & PKW (ca. 24,5 km)"
+).add_to(m)
+
+# Start / Ziel Marker
+folium.Marker([49.8083, 10.9540], popup="Start: Hirschaid-West (Erlach/Juliushof)", icon=folium.Icon(color="green")).add_to(m)
+folium.Marker([49.8988, 10.9028], popup="Ziel: Bamberg", icon=folium.Icon(color="blue")).add_to(m)
+
+# Karte rendern
+st_folium(m, width=700, height=450)
+
+st.caption("🔴 **Rot gestrichelt:** Die unumgängliche Ausweichroute über Frensdorf & Bug bei Vollsperrung der Direktverbindungen.")
+
+st.divider()
+
+# 6. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
 st.header("✍️ Jetzt handeln – Rechtswirksam unterschreiben!")
 
 st.error("""
@@ -89,7 +143,7 @@ with col_pet:
 
 st.divider()
 
-# Impressum / Legal Section
+# 7. IMPRESSUM
 st.caption("""
 **Herausgeber & Initiative:** Bürgerinitiative Hirschaid-West / Altendorf in Kooperation mit der Wählergemeinschaft West (WGW).  
 **Kontakt / Verantwortlich:** [Dein Name/Vertreter], [Straße, Hausnummer], [PLZ Ort], E-Mail: [Deine E-Mail]
