@@ -16,12 +16,28 @@ st.title("Sagt hinterher nicht, keiner hätte gewusst, was auf uns zukommt!")
 st.subheader("Brückensanierung ja, aber Wege in Hirschaid und nach Bamberg sichern, ohne Verkehrskollaps!")
 
 st.markdown("""
-*Die anstehenden Baustellen bedrohen die Verkehrsanbindung in Richtung Bamberg von Hirschaid-Regnitzau, Sassanfahrt, Köttmannsdorf, Rothensand, Großbuchfeld, Kleinbuchfeld, Juliushof und Seußling / Altendorf. Der Umweg über Frensdorf bedeutet massive Mehrkosten und Zeitverluste!*
+*Die anstehenden Baustellen bedrohen die Verkehrsanbindung von Sassanfahrt, Erlach, Juliushof, 
+Köttmannsdorf, Rothensand und Altendorf. Der Umweg über Frensdorf bedeutet massive Mehrkosten und Zeitverluste!*
 """)
 
 st.divider()
 
-# 3. RECHNER (EINGABEFORMULAR)
+# 3. WARUM JETZT ACTIEN? (DRINGLICHKEIT)
+st.header("⏱️ Warum zählt JETZT jeder Tag?")
+
+st.markdown("""
+Mancher mag fragen: *„Die Hauptsanierung dauert doch noch – warum jetzt schon unterschreiben?“*  
+Die Antwort ist einfach: **Weil die Weichen für die Verkehrsführung HEUTE gestellt werden!**
+
+* 🚨 **Gefahr von unbemerkten Überschneidungen:** Wenn wir jetzt nicht aktiv werden, besteht die große Gefahr, dass sich die Sanierungs- und Bauarbeiten bei den verschiedenen Brücken (St 2244 & B 505) überschneiden.
+* 🚨 **Handeln, bevor das Kind in den Brunnen fällt:** Erfahrungsgemäß erkennen Behörden die fatalen Überschneidungen erst, wenn die Verträge gezeichnet sind und die Vollsperrung steht – dann ist es für Alternativen zu spät.
+* 🚨 **Langer Vorlauf für Behelfsbrücken:** Der Bau einer Behelfsbrücke im FFH-Naturschutzgebiet benötigt Monate an Umweltprüfungen und Genehmigungen. Wer erst bei Baubeginn danach ruft, steht jahrelang im Stau.
+* 🚨 **Signale an die Entscheider senden:** Die Bohrarbeiten zeigen, dass die Detailplanungen laufen. Nur wenn wir **jetzt** eine starke Welle an Unterschriften vorlegen, zwingen wir das Bauamt dazu, Koppelungsverbote und Behelfsstrukturen von Anfang an fest einzuplanen!
+""")
+
+st.divider()
+
+# 4. RECHNER (EINGABEFORMULAR)
 st.header("🧮 Berechne dein Stau- & Kostenrisiko")
 
 col1, col2 = st.columns(2)
@@ -52,7 +68,7 @@ stunden_jahr = (zeitverlust_tag * tage_jahr) / 60
 
 st.divider()
 
-# 4. ERGEBNISSE ANZEIGEN
+# 5. ERGEBNISSE ANZEIGEN
 st.header("📊 Deine Ergebnisse (Mehrbelastung bei Vollsperrung)")
 
 k1, k2, k3 = st.columns(3)
@@ -64,7 +80,7 @@ st.warning(f"⚠️ **Hochrechnung für ein Baujahr:** Du fährst ca. **{gesamte
 
 st.divider()
 
-# 5. KARTEN-VISUALISIERUNG
+# 6. KARTEN-VISUALISIERUNG
 st.header("🗺️ Die Umleitungsstrecke & Nadelöhre im Überblick")
 
 # Kartenzentrum
@@ -117,7 +133,7 @@ st.caption("🔴 **Rot gestrichelt:** Die unumgängliche Ausweichroute über Fre
 
 st.divider()
 
-# 6. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
+# 7. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
 st.header("✍️ Jetzt handeln – Rechtswirksam unterschreiben!")
 
 st.error("""
@@ -135,15 +151,15 @@ st.markdown("""
 col_wa, col_pet = st.columns(2)
 
 with col_wa:
-    st.link_button("📲 WhatsApp-Community beitreten", "https://chat.whatsapp.com/KmCCa8tthhZ3SnvpuIuqfm")
+    st.link_button("📲 WhatsApp-Community beitreten", "https://chat.whatsapp.com/DEIN_LINK_HIER")
 
 with col_pet:
     st.link_button("✍️ Zur Online-Unterstützung", "https://www.openpetition.de/petition/online/brueckensanierung-ja-aber-wege-in-hirschaid-und-nach-bamberg-sichern-ohne-verkehrskollaps")
 
 st.divider()
 
-# 7. IMPRESSUM
-# Platzhalter: **Herausgeber & Initiative:** Bürgerinitiative Hirschaid-Altendorf in Kooperation mit der Wählergemeinschaft West (WGW).  
+# 8. IMPRESSUM
+# PLATZHALTER: **Herausgeber & Initiative:** Bürgerinitiative Hirschaid-Altendorf in Kooperation mit der Wählergemeinschaft West (WGW).
 st.caption("""
 **Kontakt / Verantwortlich:** Benjamin Bauer, Juliusring 2, 96114 Hirschaid
 """)
