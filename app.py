@@ -79,7 +79,7 @@ stunden_jahr = (zeitverlust_tag * tage_jahr) / 60
 st.divider()
 
 # 6. ERGEBNISSE ANZEIGEN
-st.header("📊 Deine Ergebnisse (Mehrbelastung bei Vollsperrung)")
+st.header("📊 Deine Ergebnisse (Mehrbelastung bei Vollsperrung B505 und Kanalbrücke Hirschaid)")
 
 k1, k2, k3 = st.columns(3)
 k1.metric("Zusatz-Kilometer / Monat", f"{gesamte_zusatz_km_monat:.0f} km")
@@ -144,7 +144,7 @@ st.caption("🔴 **Rot gestrichelt:** Die unumgängliche Ausweichroute über Fre
 st.divider()
 
 # 8. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
-st.header("🛑 Unterstützen Sie unsere Petition, damit nicht beide Wege gleichzeitig versperrt werden (B 505 & St 2260)!")
+st.header("🛑 Unterstützen Sie unsere Petition, damit nicht beide Brücken gleichzeitig zur Sanierung komplett gesperrt werden (B 505 & Kanalbrücke Hirschaid (St 2260)!")
 st.header("✍️ Jetzt handeln – Rechtswirksam unterschreiben!")
 
 st.error("""
