@@ -38,7 +38,7 @@ Die Antwort ist einfach: **Weil die Weichen für die Verkehrsführung HEUTE gest
 st.divider()
 
 # 4. RECHNER (EINGABEFORMULAR)
-st.header("🧮 Berechne dein Stau- & Kostenrisiko")
+st.header("🧮 Berechne dein Stau- & Kostenrisiko auf dem Weg nach Bamberg, wenn die beide Brücken (B505 und St2244) gleichzeitig gesperrt sind")
 
 col1, col2 = st.columns(2)
 
