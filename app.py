@@ -27,9 +27,9 @@ st.header("⚠️ Warum aktiv werden? Das müssen Sie wissen:")
 
 st.info("""
 👉 **Wer plant hier eigentlich, wann welche Brücke gesperrt wird?**
-* ❌ **Nicht Hirschaid entscheidet:** Weder der Bürgermeister noch der Gemeinderat haben hier die Planungsgewalt.
-* 🏛️ **Das Staatliche Bauamt ist am Zug:** Die Landesbehörde muss die gealterten Brücken sanieren – blickt dabei aber oft nur auf die eigenen Baustellen.
-* ✍️ **Ihre Unterschrift wirkt oben:** Nur über den **Bayerischen Landtag** können wir das Bauamt verpflichten, Koppelungsverbote und Behelfsbrücken verbindlich einzuplanen!
+- ❌ **Nicht Hirschaid entscheidet:** Weder der Bürgermeister noch der Gemeinderat haben hier die Planungsgewalt.
+- 🏛️ **Das Staatliche Bauamt ist am Zug:** Die Landesbehörde muss die gealterten Brücken sanieren – blickt dabei aber oft nur auf die eigenen Baustellen.
+- ✍️ **Ihre Unterschrift wirkt oben:** Nur über den **Bayerischen Landtag** können wir das Bauamt verpflichten, Koppelungsverbote und Behelfsbrücken verbindlich einzuplanen!
 """)
 
 # 4. WARUM JETZT ACTIEN? (DRINGLICHKEIT)
@@ -39,13 +39,13 @@ st.markdown("""
 Mancher mag fragen: *„Die Hauptsanierung dauert doch noch – warum jetzt schon unterschreiben?“*  
 Die Antwort ist einfach: **Weil die Weichen für die Verkehrsführung HEUTE gestellt werden!**
 
-* 🚨 **Gefahr von unbemerkten Überschneidungen:** Wenn wir jetzt nicht aktiv werden, besteht die große Gefahr, dass sich die Sanierungs- und Bauarbeiten bei den verschiedenen Brücken (St 2260 & B 505) überschneiden.
+- 🚨 **Gefahr von unbemerkten Überschneidungen:** Wenn wir jetzt nicht aktiv werden, besteht die große Gefahr, dass sich die Sanierungs- und Bauarbeiten bei den verschiedenen Brücken (St 2260 & B 505) überschneiden.
 
-* 🚨 **Handeln, bevor das Kind in den Brunnen fällt:** Erfahrungsgemäß erkennen Behörden die fatalen Überschneidungen erst, wenn die Verträge gezeichnet sind und die Vollsperrung steht – dann ist es für Alternativen zu spät.
+- 🚨 **Handeln, bevor das Kind in den Brunnen fällt:** Erfahrungsgemäß erkennen Behörden die fatalen Überschneidungen erst, wenn die Verträge gezeichnet sind und die Vollsperrung steht – dann ist es für Alternativen zu spät.
 
-* 🚨 **Langer Vorlauf für Behelfsbrücken:** Der Bau einer Behelfsbrücke im FFH-Naturschutzgebiet benötigt Monate an Umweltprüfungen und Genehmigungen. Wer erst bei Baubeginn danach ruft, steht jahrelang im Stau.
+- 🚨 **Langer Vorlauf für Behelfsbrücken:** Der Bau einer Behelfsbrücke im FFH-Naturschutzgebiet benötigt Monate an Umweltprüfungen und Genehmigungen. Wer erst bei Baubeginn danach ruft, steht jahrelang im Stau.
 
-* 🚨 **Signale an die Entscheider senden:** Die Bohrarbeiten zeigen, dass die Detailplanungen laufen. Nur wenn wir **jetzt** eine starke Welle an Unterschriften vorlegen, zwingen wir das Bauamt dazu, Koppelungsverbote und Behelfsstrukturen von Anfang an fest einzuplanen!
+- 🚨 **Signale an die Entscheider senden:** Die Bohrarbeiten zeigen, dass die Detailplanungen laufen. Nur wenn wir **jetzt** eine starke Welle an Unterschriften vorlegen, zwingen wir das Bauamt dazu, Koppelungsverbote und Behelfsstrukturen von Anfang an fest einzuplanen!
 """)
 
 st.divider()
