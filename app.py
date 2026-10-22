@@ -133,4 +133,44 @@ folium.PolyLine(
 ).add_to(m)
 
 # Start / Ziel Marker
-folium.Marker([49.8083, 10.9540], popup="Start: Hirschaid-West (Erlach/
+folium.Marker([49.8083, 10.9540], popup="Start: Hirschaid-West (Erlach/Juliushof)", icon=folium.Icon(color="green")).add_to(m)
+folium.Marker([49.8988, 10.9028], popup="Ziel: Bamberg", icon=folium.Icon(color="blue")).add_to(m)
+
+# Karte rendern
+st_folium(m, width=700, height=450)
+
+st.caption("🔴 **Rot gestrichelt:** Die unumgängliche Ausweichroute über Frensdorf & Bug bei Vollsperrung der Direktverbindungen.")
+
+st.divider()
+
+# 8. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
+st.header("🛑 Unterstützen Sie unsere Petition, damit nicht beide Wege gleichzeitig versperrt werden (B 505 & St 2260)!")
+st.header("✍️ Jetzt handeln – Rechtswirksam unterschreiben!")
+
+st.error("""
+**WICHTIGER HINWEIS ZUR RECHTSSICHERHEIT:**  
+Reine Online-Klicks reichen für die Übergabe an den Bayerischen Landtag oft nicht aus. 
+**Nur händisch geleistete Unterschriften auf der Papierliste sind rechtlich zu 100 % wirksam!**
+""")
+
+st.markdown("""
+### So verpasst du keinen Auslegeort:
+1. **Tritt der WhatsApp-Community bei:** Dort erfährst du sofort, wo in den Ortsteilen (Bäckereien, Geschäfte, Infostände) die offiziellen Unterschriftenlisten ausliegen.
+2. Trage dich unten zur digitalen Unterstützung ein, um den Fortschritt zu verfolgen.
+""")
+
+col_wa, col_pet = st.columns(2)
+
+with col_wa:
+    st.link_button("📲 WhatsApp-Community beitreten", "https://chat.whatsapp.com/KmCCa8tthhZ3SnvpuIuqfm")
+
+with col_pet:
+    st.link_button("✍️ Zur Online-Unterstützung", "https://www.openpetition.de/petition/online/brueckensanierung-ja-aber-wege-in-hirschaid-und-nach-bamberg-sichern-ohne-verkehrskollaps")
+
+st.divider()
+
+# 9. IMPRESSUM
+# PLATZHALTER: **Herausgeber & Initiative:** Bürgerinitiative Hirschaid-Altendorf in Kooperation mit der Wählergemeinschaft West (WGW).
+st.caption("""
+**Kontakt / Verantwortlich:** Benjamin Bauer, Juliusring 2, 96114 Hirschaid
+""")
