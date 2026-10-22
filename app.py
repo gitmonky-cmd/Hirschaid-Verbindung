@@ -12,7 +12,7 @@ st.set_page_config(
 # 2. AKTUELLER AUFHÄNGER & MOTTO
 st.warning("🚨 **AKTUELLE MELDUNG:** Vom 26.10. bis 26.11.2026 finden bereits Bohrarbeiten mit halbseitiger Sperrung auf der Kanalbrücke statt! Die Vorbereitungen für die Großsanierung laufen.")
 
-st.title("Sagt hinterher nicht, keiner hätte gewusst, was auf uns zukommt!")
+st.title("Sagt hinterher nicht, wir hätten es nicht ahnen können!")
 st.subheader("Brückensanierung ja, aber Wege in Hirschaid und nach Bamberg sichern, ohne Verkehrskollaps!")
 
 st.markdown("""
