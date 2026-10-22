@@ -139,7 +139,8 @@ with col_wa:
     st.link_button("📲 WhatsApp-Community beitreten", "https://chat.whatsapp.com/DEIN_LINK_HIER")
 
 with col_pet:
-    st.link_button("✍️ Zur Online-Unterstützung", "https://DEINE_ONLINE_PETITION_URL")
+    st.link_button("✍️ Zur Online-Unterstützung", "with col_pet:
+    st.link_button("✍️ Zur Online-Unterstützung", "https://www.openpetition.de/petition/online/brueckensanierung-ja-aber-wege-in-hirschaid-und-nach-bamberg-sichern-ohne-verkehrskollaps")
 
 st.divider()
 
