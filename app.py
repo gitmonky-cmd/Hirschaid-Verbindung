@@ -146,5 +146,5 @@ st.divider()
 # 7. IMPRESSUM
 st.caption("""
 **Herausgeber & Initiative:** Bürgerinitiative Hirschaid-West / Altendorf in Kooperation mit der Wählergemeinschaft West (WGW).  
-**Kontakt / Verantwortlich:** Benjamin Bauer, Friesener Hauptstr. 31, 96114 Hirschaid
+**Kontakt / Verantwortlich:** Benjamin Bauer, Juliusring 2, 96114 Hirschaid
 """)
