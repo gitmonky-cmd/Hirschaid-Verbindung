@@ -16,7 +16,7 @@ st.title("Sagt hinterher nicht, keiner hätte gewusst, was auf uns zukommt!")
 st.subheader("Brückensanierung ja, aber Wege in Hirschaid und nach Bamberg sichern, ohne Verkehrskollaps!")
 
 st.markdown("""
-*Die anstehenden Baustellen bedrohen die Verkehrsanbindung von Hirschaid-Regnitzau, Sassanfahrt, Köttmannsdorf, Rothensand, Großbuchfeld, Kleinbuchfeld, Juliushof und Seußling / Altendorf. Der Umweg über Frensdorf bedeutet massive Mehrkosten und Zeitverluste!*
+*Die anstehenden Baustellen bedrohen die Verkehrsanbindung in Richtung Bamberg von Hirschaid-Regnitzau, Sassanfahrt, Köttmannsdorf, Rothensand, Großbuchfeld, Kleinbuchfeld, Juliushof und Seußling / Altendorf. Der Umweg über Frensdorf bedeutet massive Mehrkosten und Zeitverluste!*
 """)
 
 st.divider()
