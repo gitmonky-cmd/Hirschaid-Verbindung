@@ -22,7 +22,17 @@ Köttmannsdorf, Rothensand und Altendorf. Der Umweg über Frensdorf bedeutet mas
 
 st.divider()
 
-# 3. WARUM JETZT ACTIEN? (DRINGLICHKEIT)
+# 3. WARUM AKTIV WERDEN / DAS PROBLEM JETZT
+st.header("⚠️ Warum aktiv werden? Das müssen Sie wissen:")
+
+st.info("""
+👉 **Wer plant hier eigentlich?**
+* ❌ **Nicht Hirschaid entscheidet:** Weder der Bürgermeister noch der Gemeinderat haben hier die Planungsgewalt.
+* 🏛️ **Das Staatliche Bauamt ist am Zug:** Die Landesbehörde muss die gealterten Brücken sanieren – blickt dabei aber oft nur auf die eigenen Baustellen.
+* ✍️ **Ihre Unterschrift wirkt oben:** Nur über den **Bayerischen Landtag** können wir das Bauamt verpflichten, Koppelungsverbote und Behelfsbrücken verbindlich einzuplanen!
+""")
+
+# 4. WARUM JETZT ACTIEN? (DRINGLICHKEIT)
 st.header("⏱️ Warum zählt JETZT jeder Tag?")
 
 st.markdown("""
@@ -37,8 +47,8 @@ Die Antwort ist einfach: **Weil die Weichen für die Verkehrsführung HEUTE gest
 
 st.divider()
 
-# 4. RECHNER (EINGABEFORMULAR)
-st.header("🧮 Berechne dein Stau- & Kostenrisiko auf dem Weg nach Bamberg")
+# 5. RECHNER (EINGABEFORMULAR)
+st.header("🧮 Berechne dein Stau- & Kostenrisiko")
 
 col1, col2 = st.columns(2)
 
@@ -68,7 +78,7 @@ stunden_jahr = (zeitverlust_tag * tage_jahr) / 60
 
 st.divider()
 
-# 5. ERGEBNISSE ANZEIGEN
+# 6. ERGEBNISSE ANZEIGEN
 st.header("📊 Deine Ergebnisse (Mehrbelastung bei Vollsperrung)")
 
 k1, k2, k3 = st.columns(3)
@@ -80,7 +90,7 @@ st.warning(f"⚠️ **Hochrechnung für ein Baujahr:** Du fährst ca. **{gesamte
 
 st.divider()
 
-# 6. KARTEN-VISUALISIERUNG
+# 7. KARTEN-VISUALISIERUNG
 st.header("🗺️ Die Umleitungsstrecke & Nadelöhre im Überblick")
 
 # Kartenzentrum
@@ -133,7 +143,7 @@ st.caption("🔴 **Rot gestrichelt:** Die unumgängliche Ausweichroute über Fre
 
 st.divider()
 
-# 7. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
+# 8. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
 st.header("✍️ Jetzt handeln – Rechtswirksam unterschreiben!")
 
 st.error("""
@@ -158,7 +168,7 @@ with col_pet:
 
 st.divider()
 
-# 8. IMPRESSUM
+# 9. IMPRESSUM
 # PLATZHALTER: **Herausgeber & Initiative:** Bürgerinitiative Hirschaid-Altendorf in Kooperation mit der Wählergemeinschaft West (WGW).
 st.caption("""
 **Kontakt / Verantwortlich:** Benjamin Bauer, Juliusring 2, 96114 Hirschaid
