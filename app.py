@@ -144,7 +144,7 @@ with col_pet:
 st.divider()
 
 # 7. IMPRESSUM
+# Platzhalter: **Herausgeber & Initiative:** Bürgerinitiative Hirschaid-Altendorf in Kooperation mit der Wählergemeinschaft West (WGW).  
 st.caption("""
-**Herausgeber & Initiative:** Bürgerinitiative Hirschaid-West / Altendorf in Kooperation mit der Wählergemeinschaft West (WGW).  
 **Kontakt / Verantwortlich:** Benjamin Bauer, Juliusring 2, 96114 Hirschaid
 """)
