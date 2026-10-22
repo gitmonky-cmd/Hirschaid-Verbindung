@@ -140,7 +140,7 @@ with col_wa:
 
 with col_pet:
     st.link_button("✍️ Zur Online-Unterstützung", "with col_pet:
-    st.link_button("✍️ Zur Online-Unterstützung", "https://www.openpetition.de/petition/online/brueckensanierung-ja-aber-wege-in-hirschaid-und-nach-bamberg-sichern-ohne-verkehrskollaps")
+    st.link_button("✍️ Zur Online-Unterstützung", "https://www.openpetition.de/petition/online/brueckensanierung-ja-aber-wege-in-hirschaid-und-nach-bamberg-sichern-ohne-verkehrskollaps")")
 
 st.divider()
 
