@@ -122,21 +122,31 @@ with tab2:
     
     st.warning(f"⚠️ **Exakte Hochrechnung:** Über die BA 3 und Altendorf (Regnitzstraße) beträgt der Umweg **8,3 km pro Fahrt** – das summiert sich auf ca. **{km_j:.0f} km extra** und **{std_j:.0f} Stunden** Zeitverlust pro Baujahr!")
 
-    m2 = folium.Map(location=[49.795, 10.975], zoom_start=12)
+    # Zentrierung der Karte zwischen Köttmannsdorf, Altendorf und Hirschaid
+    m2 = folium.Map(location=[49.7920, 10.9750], zoom_start=13)
     
-    # Exakter Streckenverlauf: Köttmannsdorf Hauptstraße -> BA 3 -> Seußling -> Altendorf Regnitzstraße -> St 2244 -> Hirschaid Kirchplatz
+    # Präziser Streckenverlauf über reale Koordinaten
     route_koettmannsdorf_ba3 = [
-        [49.8055, 10.9635],  # Start: Köttmannsdorfer Hauptstraße
-        [49.7890, 10.9570],  # BA 3 Richtung Seußling
-        [49.7735, 10.9660],  # Seußling Ortsmitte
-        [49.7710, 10.9830],  # Altendorf Regnitzstraße (Brücke über Regnitz & Kanal)
-        [49.7850, 10.9880],  # Auffahrt St 2244 Richtung Nord (Hirschaid)
-        [49.8162, 10.9922]   # Ziel: Kirchplatz Hirschaid
+        [49.8066, 10.9643],  # Start: Köttmannsdorfer Hauptstraße
+        [49.7890, 10.9575],  # BA 3 Verlauf Richtung Süden
+        [49.7745, 10.9660],  # Seußling Hauptstraße
+        [49.7710, 10.9830],  # Altendorf Regnitzstraße (Brücke über Regnitz & Main-Donau-Kanal)
+        [49.7800, 10.9865],  # St 2244 (Bamberger Straße) Richtung Hirschaid
+        [49.8179, 10.9892]   # Ziel: Kirchplatz Hirschaid
     ]
     
-    folium.PolyLine(route_koettmannsdorf_ba3, color="red", weight=5, dash_array="10", tooltip="Ausweichroute über BA 3 & Altendorf Regnitzstraße (ca. 10,8 km)").add_to(m2)
-    folium.Marker([49.8055, 10.9635], popup="Start: Köttmannsdorfer Hauptstraße", icon=folium.Icon(color="green")).add_to(m2)
-    folium.Marker([49.8162, 10.9922], popup="Ziel: Kirchplatz Hirschaid", icon=folium.Icon(color="blue")).add_to(m2)
+    folium.PolyLine(
+        route_koettmannsdorf_ba3, 
+        color="red", 
+        weight=5, 
+        opacity=0.8,
+        dash_array="10", 
+        tooltip="Ausweichroute: Köttmannsdorf ➔ BA 3 ➔ Seußling ➔ Altendorf ➔ St 2244 ➔ Kirchplatz (ca. 10,8 km)"
+    ).add_to(m2)
+    
+    folium.Marker([49.8066, 10.9643], popup="Start: Köttmannsdorfer Hauptstraße", icon=folium.Icon(color="green")).add_to(m2)
+    folium.Marker([49.8179, 10.9892], popup="Ziel: Hirschaid Kirchplatz", icon=folium.Icon(color="blue")).add_to(m2)
+    
     st_folium(m2, width=700, height=350, key="map2")
 
 # --- TAB 3: Juliushof ➔ Erlangen ---
