@@ -121,8 +121,8 @@ with tab2:
     st.warning(f"⚠️ **Der Wahnsinn hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** verlost für eine Strecke, die sonst nur 3 Minuten dauert!")
 
     m2 = folium.Map(location=[49.835, 10.955], zoom_start=12)
-    folium.PolyLine([[49.8285, 10.9280], [49.8550, 10.9500], [49.8175, 10.9910]], color="red", weight=5, dash_array="10").add_to(m2)
-    folium.Marker([49.8285, 10.9280], popup="Start: Köttmannsdorf Ortsmitte", icon=folium.Icon(color="green")).add_to(m2)
+    folium.PolyLine([[49.8270, 10.9315], [49.8550, 10.9500], [49.8175, 10.9910]], color="red", weight=5, dash_array="10").add_to(m2)
+    folium.Marker([49.8270, 10.9315], popup="Start: Köttmannsdorfer Hauptstraße", icon=folium.Icon(color="green")).add_to(m2)
     folium.Marker([49.8175, 10.9910], popup="Ziel: Rathaus / Zentrum Hirschaid", icon=folium.Icon(color="blue")).add_to(m2)
     st_folium(m2, width=700, height=350, key="map2")
 
