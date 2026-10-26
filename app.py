@@ -56,124 +56,96 @@ st.header("🧮 Berechne dein Stau- & Kostenrisiko")
 col1, col2 = st.columns(2)
 
 with col1:
-    arbeitstage = st.slider("Arbeitstage pro Woche nach Bamberg:", min_value=1, max_value=7, value=5)
+    arbeitstage = st.slider("Fahrten pro Woche:", min_value=1, max_value=7, value=5)
     fahrzeug = st.selectbox("Fahrzeugtyp:", ["Standard-PKW", "Leichtkfz / L6e (45 km/h)"])
 
 with col2:
     spritpreis = st.number_input("Spritpreis (€/Liter):", value=1.75, step=0.05)
     verbrauch = st.number_input("Verbrauch (L/100 km):", value=6.5, step=0.5)
 
-# Berechnungskonstanten
-umweg_pro_strecke = 24.5 - 12.0  # 12.5 km Mehrweg pro Fahrt
-zusatz_km_tag = umweg_pro_strecke * 2
-
-zeitverlust_fahrt = 15 if "PKW" in fahrzeug else 25
-zeitverlust_tag = zeitverlust_fahrt * 2
-
-wochen_pro_jahr = 46
-tage_jahr = arbeitstage * wochen_pro_jahr
-
-gesamte_zusatz_km_monat = (zusatz_km_tag * arbeitstage * 52) / 12
-gesamte_zusatz_km_jahr = zusatz_km_tag * tage_jahr
-
-spritkosten_monat = (gesamte_zusatz_km_monat / 100) * verbrauch * spritpreis
-stunden_jahr = (zeitverlust_tag * tage_jahr) / 60
-
 st.divider()
 
-# 6. ERGEBNISSE ANZEIGEN
-st.header("📊 Deine Ergebnisse (Mehrbelastung bei Vollsperrung B505 und Kanalbrücke Hirschaid)")
+# 6. SCENARIEN & RECHNER-ERGEBNISSE
+st.header("📊 Szenarien-Vergleich & Betroffenheit")
 
-k1, k2, k3 = st.columns(3)
-k1.metric("Zusatz-Kilometer / Monat", f"{gesamte_zusatz_km_monat:.0f} km")
-k2.metric("Sprit-Mehrkosten / Monat", f"{spritkosten_monat:.2f} €")
-k3.metric("Zeitverlust / Jahr", f"{stunden_jahr:.0f} Std.")
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    "Pendler Bamberg", 
+    "Köttmannsdorf ➔ Zentrum", 
+    "Juliushof ➔ Erlangen", 
+    "Rothensand ➔ Realschule", 
+    "Sassanfahrt ➔ Ärztehaus", 
+    "Frensdorf ➔ Bahnhof"
+])
 
-st.warning(f"⚠️ **Hochrechnung für ein Baujahr:** Du fährst ca. **{gesamte_zusatz_km_jahr:.0f} km extra** und verbringst **{stunden_jahr:.0f} Stunden** zusätzlich im Auto!")
+# Hilfsfunktion für Berechnungen
+def berechne_werte(umweg_km_einfach, zeit_min_einfach):
+    zusatz_km_tag = umweg_km_einfach * 2
+    zeitverlust_tag = (zeit_min_einfach * 2) if "PKW" in fahrzeug else (zeit_min_einfach * 1.5 * 2)
+    tage_jahr = arbeitstage * 46
+    
+    km_monat = (zusatz_km_tag * arbeitstage * 52) / 12
+    km_jahr = zusatz_km_tag * tage_jahr
+    kosten_monat = (km_monat / 100) * verbrauch * spritpreis
+    stunden_jahr = (zeitverlust_tag * tage_jahr) / 60
+    return km_monat, kosten_monat, stunden_jahr, km_jahr
 
-st.divider()
+# --- TAB 1: Pendler Bamberg ---
+with tab1:
+    st.subheader("Pendlerstrecke: Hirschaid-West ➔ Bamberg")
+    km_m, kost_m, std_j, km_j = berechne_werte(12.5, 15)
+    
+    k1, k2, k3 = st.columns(3)
+    k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
+    k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
+    k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
+    st.warning(f"⚠️ **Jahr hochgerechnet:** {km_j:.0f} km Umweg und {std_j:.0f} Std. Umweg-Zeit.")
 
-# 7. KARTEN-VISUALISIERUNG
-st.header("🗺️ Die Umleitungsstrecke & Nadelöhre im Überblick")
+    m1 = folium.Map(location=[49.835, 10.915], zoom_start=11)
+    folium.PolyLine([[49.8083, 10.9540], [49.7990, 10.9268], [49.7942, 10.8852], [49.8159, 10.8661], [49.8674, 10.9052], [49.8988, 10.9028]], color="red", weight=5, dash_array="10").add_to(m1)
+    folium.Marker([49.8083, 10.9540], popup="Start: Hirschaid-West", icon=folium.Icon(color="green")).add_to(m1)
+    folium.Marker([49.8988, 10.9028], popup="Ziel: Bamberg", icon=folium.Icon(color="blue")).add_to(m1)
+    st_folium(m1, width=700, height=350, key="map1")
 
-# Kartenzentrum
-m = folium.Map(location=[49.835, 10.915], zoom_start=11, tiles="OpenStreetMap")
+# --- TAB 2: Köttmannsdorf ➔ Zentrum Hirschaid ---
+with tab2:
+    st.subheader("Köttmannsdorf ➔ Zentrum Hirschaid (Ohne Behelfsbrücke)")
+    st.caption("Direktweg: ca. 2,5 km | Umweg über Strullendorf/B505 bzw. Frensdorf: ca. 14 km")
+    km_m, kost_m, std_j, km_j = berechne_werte(11.5, 12)
+    
+    k1, k2, k3 = st.columns(3)
+    k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
+    k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
+    k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
+    st.warning(f"⚠️ **Der Wahnsinn:** Für eine Strecke von ursprünglich 3 Min. werden 15-20 Min. pro Fahrt benötigt!")
 
-# Marker 1: Sperrung Kanalbrücke St 2260
-folium.Marker(
-    location=[49.8168, 10.9835],
-    popup="<b>SPERRUNG / SONDIERUNG:</b><br>Kanalbrücke St 2260 Hirschaid",
-    tooltip="🚨 Nadelöhr 1: Kanalbrücke St 2260",
-    icon=folium.Icon(color="red", icon="warning-sign")
-).add_to(m)
+    m2 = folium.Map(location=[49.830, 10.950], zoom_start=12)
+    folium.PolyLine([[49.8260, 10.9380], [49.8550, 10.9500], [49.8168, 10.9900]], color="red", weight=5, dash_array="10").add_to(m2)
+    folium.Marker([49.8260, 10.9380], popup="Start: Köttmannsdorf", icon=folium.Icon(color="green")).add_to(m2)
+    folium.Marker([49.8168, 10.9900], popup="Ziel: Zentrum Hirschaid", icon=folium.Icon(color="blue")).add_to(m2)
+    st_folium(m2, width=700, height=350, key="map2")
 
-# Marker 2: Sperrung/Engpass B 505
-folium.Marker(
-    location=[49.8250, 10.9480],
-    popup="<b>BAUSTELLE / ENG PASS:</b><br>B 505 (Auffahrt / Brücken)",
-    tooltip="🚨 Nadelöhr 2: B 505 / Anschlussstelle",
-    icon=folium.Icon(color="orange", icon="warning-sign")
-).add_to(m)
+# --- TAB 3: Juliushof ➔ Erlangen ---
+with tab3:
+    st.subheader("Juliushof ➔ Erlangen / Süden")
+    st.caption("Auffahrt Hirschaid/B505 dicht: Ausweichen über Höchstadt/A3 oder Altendorf/Buttenheim")
+    km_m, kost_m, std_j, km_j = berechne_werte(8.0, 10)
+    
+    k1, k2, k3 = st.columns(3)
+    k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
+    k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
+    k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
 
-# Umleitungspunkte (Erlach -> Röbersdorf -> Herrnsdorf -> Frensdorf -> Bug -> Bamberg)
-umleitung_punkte = [
-    [49.8083, 10.9540],  # Erlach / Juliushof
-    [49.7990, 10.9268],  # Röbersdorf
-    [49.7942, 10.8852],  # Herrnsdorf
-    [49.8159, 10.8661],  # Frensdorf
-    [49.8674, 10.9052],  # Bug
-    [49.8988, 10.9028]   # Bamberg Zentrum
-]
+    m3 = folium.Map(location=[49.750, 10.950], zoom_start=11)
+    folium.PolyLine([[49.8020, 10.9480], [49.7900, 10.9800], [49.7700, 10.9900], [49.5960, 11.0040]], color="red", weight=5, dash_array="10").add_to(m3)
+    folium.Marker([49.8020, 10.9480], popup="Start: Juliushof", icon=folium.Icon(color="green")).add_to(m3)
+    folium.Marker([49.5960, 11.0040], popup="Ziel: Erlangen", icon=folium.Icon(color="blue")).add_to(m3)
+    st_folium(m3, width=700, height=350, key="map3")
 
-# Umleitungs-Linie (Rot gestrichelt)
-folium.PolyLine(
-    locations=umleitung_punkte,
-    color="red",
-    weight=5,
-    opacity=0.8,
-    dash_array="10",
-    tooltip="Ausweichroute für L6e & PKW (ca. 24,5 km)"
-).add_to(m)
-
-# Start / Ziel Marker
-folium.Marker([49.8083, 10.9540], popup="Start: Hirschaid-West (Erlach/Juliushof)", icon=folium.Icon(color="green")).add_to(m)
-folium.Marker([49.8988, 10.9028], popup="Ziel: Bamberg", icon=folium.Icon(color="blue")).add_to(m)
-
-# Karte rendern
-st_folium(m, width=700, height=450)
-
-st.caption("🔴 **Rot gestrichelt:** Die unumgängliche Ausweichroute über Frensdorf & Bug bei Vollsperrung der Direktverbindungen.")
-
-st.divider()
-
-# 8. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
-st.header("🛑 Damit nicht beide Brücken gleichzeitig gesperrt werden (B 505 & Kanalbrücke Hirschaid (St 2260)!")
-st.header("✍️ Jetzt handeln – Rechtswirksam unterschreiben!")
-
-st.error("""
-**WICHTIGER HINWEIS ZUR RECHTSSICHERHEIT:**  
-Reine Online-Klicks reichen für die Übergabe an den Bayerischen Landtag oft nicht aus. 
-**Nur händisch geleistete Unterschriften auf der Papierliste sind rechtlich zu 100 % wirksam!**
-""")
-
-st.markdown("""
-### So verpasst du keinen Auslegeort:
-1. **Tritt der WhatsApp-Community bei:** Dort erfährst du sofort, wo in den Ortsteilen (Bäckereien, Geschäfte, Infostände) die offiziellen Unterschriftenlisten ausliegen.
-2. Trage dich unten zur digitalen Unterstützung ein, um den Fortschritt zu verfolgen.
-""")
-
-col_wa, col_pet = st.columns(2)
-
-with col_wa:
-    st.link_button("📲 WhatsApp-Community beitreten", "https://chat.whatsapp.com/KmCCa8tthhZ3SnvpuIuqfm")
-
-with col_pet:
-    st.link_button("✍️ Zur Online-Unterstützung", "https://www.openpetition.de/petition/online/brueckensanierung-ja-aber-wege-in-hirschaid-und-nach-bamberg-sichern-ohne-verkehrskollaps")
-
-st.divider()
-
-# 9. IMPRESSUM
-# PLATZHALTER: **Herausgeber & Initiative:** Bürgerinitiative Hirschaid-Altendorf in Kooperation mit der Wählergemeinschaft West (WGW).
-st.caption("""
-**Kontakt / Verantwortlich:** Benjamin Bauer, Juliusring 2, 96114 Hirschaid
-""")
+# --- TAB 4: Rothensand ➔ Realschule Hirschaid ---
+with tab4:
+    st.subheader("Rothensand ➔ Realschule Hirschaid (Schulweg)")
+    st.caption("Kein Schulbus durch die Sperrung: Umleitung der Busse über Seußling/Altendorf")
+    km_m, kost_m, std_j, km_j = berechne_werte(7.5, 12)
+    
+    k1, k2, k3 = st.columns(3)
+    k1.metric("Zusatz-KM / Monat", f"{km_m:.0f}
