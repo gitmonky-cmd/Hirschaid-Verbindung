@@ -101,10 +101,10 @@ with tab1:
     
     st.warning(f"⚠️ **Jahr hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** reine Umweg-Zeit pro Baujahr!")
 
-    m1 = folium.Map(location=[49.835, 10.915], zoom_start=11)
+    m1 = folium.Map(location=[49.845, 10.915], zoom_start=11)
     folium.PolyLine([[49.8083, 10.9540], [49.7990, 10.9268], [49.7942, 10.8852], [49.8159, 10.8661], [49.8674, 10.9052], [49.8988, 10.9028]], color="red", weight=5, dash_array="10").add_to(m1)
-    folium.Marker([49.8083, 10.9540], popup="Start: Hirschaid-West", icon=folium.Icon(color="green")).add_to(m1)
-    folium.Marker([49.8988, 10.9028], popup="Ziel: Bamberg", icon=folium.Icon(color="blue")).add_to(m1)
+    folium.Marker([49.8083, 10.9540], popup="Start: Erlach / Hirschaid-West", icon=folium.Icon(color="green")).add_to(m1)
+    folium.Marker([49.8988, 10.9028], popup="Ziel: Bamberg Zentrum", icon=folium.Icon(color="blue")).add_to(m1)
     st_folium(m1, width=700, height=350, key="map1")
 
 # --- TAB 2: Köttmannsdorf ➔ Zentrum Hirschaid ---
@@ -120,10 +120,10 @@ with tab2:
     
     st.warning(f"⚠️ **Der Wahnsinn hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** verlost für eine Strecke, die sonst nur 3 Minuten dauert!")
 
-    m2 = folium.Map(location=[49.830, 10.950], zoom_start=12)
-    folium.PolyLine([[49.8260, 10.9380], [49.8550, 10.9500], [49.8168, 10.9900]], color="red", weight=5, dash_array="10").add_to(m2)
-    folium.Marker([49.8260, 10.9380], popup="Start: Köttmannsdorf", icon=folium.Icon(color="green")).add_to(m2)
-    folium.Marker([49.8168, 10.9900], popup="Ziel: Zentrum Hirschaid", icon=folium.Icon(color="blue")).add_to(m2)
+    m2 = folium.Map(location=[49.835, 10.955], zoom_start=12)
+    folium.PolyLine([[49.8285, 10.9280], [49.8550, 10.9500], [49.8175, 10.9910]], color="red", weight=5, dash_array="10").add_to(m2)
+    folium.Marker([49.8285, 10.9280], popup="Start: Köttmannsdorf Ortsmitte", icon=folium.Icon(color="green")).add_to(m2)
+    folium.Marker([49.8175, 10.9910], popup="Ziel: Rathaus / Zentrum Hirschaid", icon=folium.Icon(color="blue")).add_to(m2)
     st_folium(m2, width=700, height=350, key="map2")
 
 # --- TAB 3: Juliushof ➔ Erlangen ---
@@ -139,10 +139,10 @@ with tab3:
     
     st.warning(f"⚠️ **Jahr hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** zusätzlicher Zeitverlust Richtung Süden!")
 
-    m3 = folium.Map(location=[49.750, 10.950], zoom_start=11)
-    folium.PolyLine([[49.8020, 10.9480], [49.7900, 10.9800], [49.7700, 10.9900], [49.5960, 11.0040]], color="red", weight=5, dash_array="10").add_to(m3)
-    folium.Marker([49.8020, 10.9480], popup="Start: Juliushof", icon=folium.Icon(color="green")).add_to(m3)
-    folium.Marker([49.5960, 11.0040], popup="Ziel: Erlangen", icon=folium.Icon(color="blue")).add_to(m3)
+    m3 = folium.Map(location=[49.700, 10.970], zoom_start=10)
+    folium.PolyLine([[49.8030, 10.9490], [49.7900, 10.9800], [49.7700, 10.9900], [49.5960, 11.0040]], color="red", weight=5, dash_array="10").add_to(m3)
+    folium.Marker([49.8030, 10.9490], popup="Start: Juliushof", icon=folium.Icon(color="green")).add_to(m3)
+    folium.Marker([49.5960, 11.0040], popup="Ziel: Erlangen Zentrum", icon=folium.Icon(color="blue")).add_to(m3)
     st_folium(m3, width=700, height=350, key="map3")
 
 # --- TAB 4: Rothensand ➔ Realschule Hirschaid ---
@@ -158,10 +158,10 @@ with tab4:
     
     st.warning(f"⚠️ **Schulweg-Belastung hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** Zeitverlust für Schüler und Elterntaxis!")
 
-    m4 = folium.Map(location=[49.800, 10.950], zoom_start=12)
-    folium.PolyLine([[49.7820, 10.9320], [49.7750, 10.9650], [49.8130, 10.9920]], color="red", weight=5, dash_array="10").add_to(m4)
-    folium.Marker([49.7820, 10.9320], popup="Start: Rothensand", icon=folium.Icon(color="green")).add_to(m4)
-    folium.Marker([49.8130, 10.9920], popup="Ziel: Realschule Hirschaid", icon=folium.Icon(color="blue")).add_to(m4)
+    m4 = folium.Map(location=[49.800, 10.955], zoom_start=12)
+    folium.PolyLine([[49.7890, 10.9350], [49.7750, 10.9650], [49.8180, 10.9950]], color="red", weight=5, dash_array="10").add_to(m4)
+    folium.Marker([49.7890, 10.9350], popup="Start: Rothensand Ortsmitte", icon=folium.Icon(color="green")).add_to(m4)
+    folium.Marker([49.8180, 10.9950], popup="Ziel: Realschule Hirschaid", icon=folium.Icon(color="blue")).add_to(m4)
     st_folium(m4, width=700, height=350, key="map4")
 
 # --- TAB 5: Sassanfahrt ➔ Ärztehaus Hirschaid ---
@@ -177,10 +177,10 @@ with tab5:
     
     st.warning(f"⚠️ **Gesundheitsversorgung hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** Mehraufwand für Patientenfahrten!")
 
-    m5 = folium.Map(location=[49.815, 10.960], zoom_start=12)
-    folium.PolyLine([[49.8120, 10.9480], [49.7900, 10.9600], [49.8180, 10.9880]], color="red", weight=5, dash_array="10").add_to(m5)
-    folium.Marker([49.8120, 10.9480], popup="Start: Sassanfahrt", icon=folium.Icon(color="green")).add_to(m5)
-    folium.Marker([49.8180, 10.9880], popup="Ziel: Ärztehaus Hirschaid", icon=folium.Icon(color="blue")).add_to(m5)
+    m5 = folium.Map(location=[49.810, 10.965], zoom_start=12)
+    folium.PolyLine([[49.8150, 10.9520], [49.7900, 10.9600], [49.8170, 10.9890]], color="red", weight=5, dash_array="10").add_to(m5)
+    folium.Marker([49.8150, 10.9520], popup="Start: Sassanfahrt Hauptstraße", icon=folium.Icon(color="green")).add_to(m5)
+    folium.Marker([49.8170, 10.9890], popup="Ziel: Ärztehaus / Apotheke Hirschaid", icon=folium.Icon(color="blue")).add_to(m5)
     st_folium(m5, width=700, height=350, key="map5")
 
 # --- TAB 6: Frensdorf ➔ Bahnhof Hirschaid ---
@@ -196,10 +196,10 @@ with tab6:
     
     st.warning(f"⚠️ **P&R Pendler hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** Lebenszeit im Stau vor dem Zug!")
 
-    m6 = folium.Map(location=[49.820, 10.920], zoom_start=12)
-    folium.PolyLine([[49.8159, 10.8661], [49.7942, 10.8852], [49.7750, 10.9650], [49.8170, 10.9880]], color="red", weight=5, dash_array="10").add_to(m6)
-    folium.Marker([49.8159, 10.8661], popup="Start: Frensdorf", icon=folium.Icon(color="green")).add_to(m6)
-    folium.Marker([49.8170, 10.9880], popup="Ziel: Bahnhof Hirschaid", icon=folium.Icon(color="blue")).add_to(m6)
+    m6 = folium.Map(location=[49.815, 10.925], zoom_start=12)
+    folium.PolyLine([[49.8159, 10.8661], [49.7942, 10.8852], [49.7750, 10.9650], [49.8160, 10.9870]], color="red", weight=5, dash_array="10").add_to(m6)
+    folium.Marker([49.8159, 10.8661], popup="Start: Frensdorf Hauptstraße", icon=folium.Icon(color="green")).add_to(m6)
+    folium.Marker([49.8160, 10.9870], popup="Ziel: Bahnhof Hirschaid (P&R)", icon=folium.Icon(color="blue")).add_to(m6)
     st_folium(m6, width=700, height=350, key="map6")
 
 st.divider()
