@@ -109,19 +109,31 @@ with tab1:
 
 # --- TAB 2: Köttmannsdorf ➔ Zentrum Hirschaid ---
 with tab2:
-    st.subheader("Köttmannsdorf ➔ Zentrum Hirschaid (Ohne Behelfsbrücke)")
-    st.caption("Direktweg: ca. 2,5 km | Umweg über Strullendorf/B505 bzw. Frensdorf: ca. 14 km")
-    km_m, kost_m, std_j, km_j = berechne_werte(11.5, 12)
+    st.subheader("Köttmannsdorf ➔ Zentrum Hirschaid (über Altendorf/Seußling)")
+    st.caption("Direktweg: ca. 2,5 km | Ausweichroute über Sassanfahrt ➔ Seußling ➔ Altendorf: ca. 9,5 km")
+    
+    # 7.0 km Umweg pro Fahrt (einfach), 9 Min. Zeitverlust
+    km_m, kost_m, std_j, km_j = berechne_werte(7.0, 9)
     
     k1, k2, k3 = st.columns(3)
     k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
     k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
     k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
     
-    st.warning(f"⚠️ **Der Wahnsinn hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** verlost für eine Strecke, die sonst nur 3 Minuten dauert!")
+    st.warning(f"⚠️ **Hochrechnung für Köttmannsdorf:** Trotz kürzerer Süd-Route über Altendorf verzehnfacht sich die Strecke pro Fahrt (7 km Umweg) – das summiert sich auf ca. **{km_j:.0f} km extra** und **{std_j:.0f} Stunden** Zeitverlust pro Baujahr!")
 
-    m2 = folium.Map(location=[49.812, 10.975], zoom_start=12)
-    folium.PolyLine([[49.8066, 10.9643], [49.8550, 10.9500], [49.8175, 10.9910]], color="red", weight=5, dash_array="10").add_to(m2)
+    m2 = folium.Map(location=[49.795, 10.975], zoom_start=12)
+    
+    # Route: Köttmannsdorf -> Sassanfahrt -> Seußling -> Altendorf -> Hirschaid Zentrum
+    route_koettmannsdorf = [
+        [49.8066, 10.9643],  # Start: Köttmannsdorfer Hauptstraße
+        [49.7990, 10.9580],  # Sassanfahrt
+        [49.7750, 10.9650],  # Seußling
+        [49.7680, 10.9900],  # Altendorf (Regnitzbrücke)
+        [49.8175, 10.9910]   # Ziel: Hirschaid Zentrum
+    ]
+    
+    folium.PolyLine(route_koettmannsdorf, color="red", weight=5, dash_array="10", tooltip="Ausweichroute über Seußling/Altendorf (ca. 9,5 km)").add_to(m2)
     folium.Marker([49.8066, 10.9643], popup="Start: Köttmannsdorfer Hauptstraße", icon=folium.Icon(color="green")).add_to(m2)
     folium.Marker([49.8175, 10.9910], popup="Ziel: Rathaus / Zentrum Hirschaid", icon=folium.Icon(color="blue")).add_to(m2)
     st_folium(m2, width=700, height=350, key="map2")
