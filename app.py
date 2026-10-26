@@ -148,4 +148,80 @@ with tab4:
     km_m, kost_m, std_j, km_j = berechne_werte(7.5, 12)
     
     k1, k2, k3 = st.columns(3)
-    k1.metric("Zusatz-KM / Monat", f"{km_m:.0f}
+    k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
+    k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
+    k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
+
+    m4 = folium.Map(location=[49.800, 10.950], zoom_start=12)
+    folium.PolyLine([[49.7820, 10.9320], [49.7750, 10.9650], [49.8130, 10.9920]], color="red", weight=5, dash_array="10").add_to(m4)
+    folium.Marker([49.7820, 10.9320], popup="Start: Rothensand", icon=folium.Icon(color="green")).add_to(m4)
+    folium.Marker([49.8130, 10.9920], popup="Ziel: Realschule Hirschaid", icon=folium.Icon(color="blue")).add_to(m4)
+    st_folium(m4, width=700, height=350, key="map4")
+
+# --- TAB 5: Sassanfahrt ➔ Ärztehaus Hirschaid ---
+with tab5:
+    st.subheader("Sassanfahrt ➔ Ärztehaus / Apotheken Hirschaid")
+    st.caption("Besonders kritisch für Senioren & Krankenfahrten ohne Behelfsbrücke!")
+    km_m, kost_m, std_j, km_j = berechne_werte(9.0, 15)
+    
+    k1, k2, k3 = st.columns(3)
+    k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
+    k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
+    k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
+
+    m5 = folium.Map(location=[49.815, 10.960], zoom_start=12)
+    folium.PolyLine([[49.8120, 10.9480], [49.7900, 10.9600], [49.8180, 10.9880]], color="red", weight=5, dash_array="10").add_to(m5)
+    folium.Marker([49.8120, 10.9480], popup="Start: Sassanfahrt", icon=folium.Icon(color="green")).add_to(m5)
+    folium.Marker([49.8180, 10.9880], popup="Ziel: Ärztehaus Hirschaid", icon=folium.Icon(color="blue")).add_to(m5)
+    st_folium(m5, width=700, height=350, key="map5")
+
+# --- TAB 6: Frensdorf ➔ Bahnhof Hirschaid ---
+with tab6:
+    st.subheader("Frensdorf ➔ Bahnhof Hirschaid (P&R Pendler)")
+    st.caption("Bahnhof Hirschaid nicht mehr direkt von Westen erreichbar")
+    km_m, kost_m, std_j, km_j = berechne_werte(10.0, 14)
+    
+    k1, k2, k3 = st.columns(3)
+    k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
+    k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
+    k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
+
+    m6 = folium.Map(location=[49.820, 10.920], zoom_start=12)
+    folium.PolyLine([[49.8159, 10.8661], [49.7942, 10.8852], [49.7750, 10.9650], [49.8170, 10.9880]], color="red", weight=5, dash_array="10").add_to(m6)
+    folium.Marker([49.8159, 10.8661], popup="Start: Frensdorf", icon=folium.Icon(color="green")).add_to(m6)
+    folium.Marker([49.8170, 10.9880], popup="Ziel: Bahnhof Hirschaid", icon=folium.Icon(color="blue")).add_to(m6)
+    st_folium(m6, width=700, height=350, key="map6")
+
+st.divider()
+
+# 7. HANDLUNGSAUFFORDERUNG & UNTERSCHRIFTEN
+st.header("🛑 Damit nicht beide Brücken gleichzeitig gesperrt werden (B 505 & Kanalbrücke Hirschaid (St 2260)!")
+st.header("✍️ Jetzt handeln – Rechtswirksam unterschreiben!")
+
+st.error("""
+**WICHTIGER HINWEIS ZUR RECHTSSICHERHEIT:**  
+Reine Online-Klicks reichen für die Übergabe an den Bayerischen Landtag oft nicht aus. 
+**Nur händisch geleistete Unterschriften auf der Papierliste sind rechtlich zu 100 % wirksam!**
+""")
+
+st.markdown("""
+### So verpasst du keinen Auslegeort:
+1. **Tritt der WhatsApp-Community bei:** Dort erfährst du sofort, wo in den Ortsteilen (Bäckereien, Geschäfte, Infostände) die offiziellen Unterschriftenlisten ausliegen.
+2. Trage dich unten zur digitalen Unterstützung ein, um den Fortschritt zu verfolgen.
+""")
+
+col_wa, col_pet = st.columns(2)
+
+with col_wa:
+    st.link_button("📲 WhatsApp-Community beitreten", "https://chat.whatsapp.com/KmCCa8tthhZ3SnvpuIuqfm")
+
+with col_pet:
+    st.link_button("✍️ Zur Online-Unterstützung", "https://www.openpetition.de/petition/online/brueckensanierung-ja-aber-wege-in-hirschaid-und-nach-bamberg-sichern-ohne-verkehrskollaps")
+
+st.divider()
+
+# 8. IMPRESSUM
+# PLATZHALTER: **Herausgeber & Initiative:** Bürgerinitiative Hirschaid-Altendorf in Kooperation mit der Wählergemeinschaft West (WGW).
+st.caption("""
+**Kontakt / Verantwortlich:** Benjamin Bauer, Juliusring 2, 96114 Hirschaid
+""")
