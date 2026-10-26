@@ -107,35 +107,36 @@ with tab1:
     folium.Marker([49.8988, 10.9028], popup="Ziel: Bamberg Zentrum", icon=folium.Icon(color="blue")).add_to(m1)
     st_folium(m1, width=700, height=350, key="map1")
 
-# --- TAB 2: Köttmannsdorf ➔ Zentrum Hirschaid ---
+# --- TAB 2: Köttmannsdorf ➔ Kirchplatz Hirschaid ---
 with tab2:
-    st.subheader("Köttmannsdorf ➔ Zentrum Hirschaid (über Altendorf/Seußling)")
-    st.caption("Direktweg: ca. 2,5 km | Ausweichroute über Sassanfahrt ➔ Seußling ➔ Altendorf: ca. 9,5 km")
+    st.subheader("Köttmannsdorf ➔ Hirschaid Kirchplatz (über BA 3 / Altendorf)")
+    st.caption("Direktweg: ca. 2,5 km | Ausweichroute über BA 3 ➔ Seußling ➔ Altendorf (Regnitzstraße) ➔ St 2244: ca. 10,8 km")
     
-    # 7.0 km Umweg pro Fahrt (einfach), 9 Min. Zeitverlust
-    km_m, kost_m, std_j, km_j = berechne_werte(7.0, 9)
+    # Exakter Umweg: 8.3 km einfach, ca. 9 Min. Zeitverlust
+    km_m, kost_m, std_j, km_j = berechne_werte(8.3, 9)
     
     k1, k2, k3 = st.columns(3)
     k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
     k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
     k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
     
-    st.warning(f"⚠️ **Hochrechnung für Köttmannsdorf:** Trotz kürzerer Süd-Route über Altendorf verzehnfacht sich die Strecke pro Fahrt (7 km Umweg) – das summiert sich auf ca. **{km_j:.0f} km extra** und **{std_j:.0f} Stunden** Zeitverlust pro Baujahr!")
+    st.warning(f"⚠️ **Exakte Hochrechnung:** Über die BA 3 und Altendorf (Regnitzstraße) beträgt der Umweg **8,3 km pro Fahrt** – das summiert sich auf ca. **{km_j:.0f} km extra** und **{std_j:.0f} Stunden** Zeitverlust pro Baujahr!")
 
     m2 = folium.Map(location=[49.795, 10.975], zoom_start=12)
     
-    # Route: Köttmannsdorf -> Sassanfahrt -> Seußling -> Altendorf -> Hirschaid Zentrum
-    route_koettmannsdorf = [
-        [49.8066, 10.9643],  # Start: Köttmannsdorfer Hauptstraße
-        [49.7990, 10.9580],  # Sassanfahrt
-        [49.7750, 10.9650],  # Seußling
-        [49.7680, 10.9900],  # Altendorf (Regnitzbrücke)
-        [49.8175, 10.9910]   # Ziel: Hirschaid Zentrum
+    # Exakter Streckenverlauf: Köttmannsdorf Hauptstraße -> BA 3 -> Seußling -> Altendorf Regnitzstraße -> St 2244 -> Hirschaid Kirchplatz
+    route_koettmannsdorf_ba3 = [
+        [49.8055, 10.9635],  # Start: Köttmannsdorfer Hauptstraße
+        [49.7890, 10.9570],  # BA 3 Richtung Seußling
+        [49.7735, 10.9660],  # Seußling Ortsmitte
+        [49.7710, 10.9830],  # Altendorf Regnitzstraße (Brücke über Regnitz & Kanal)
+        [49.7850, 10.9880],  # Auffahrt St 2244 Richtung Nord (Hirschaid)
+        [49.8162, 10.9922]   # Ziel: Kirchplatz Hirschaid
     ]
     
-    folium.PolyLine(route_koettmannsdorf, color="red", weight=5, dash_array="10", tooltip="Ausweichroute über Seußling/Altendorf (ca. 9,5 km)").add_to(m2)
-    folium.Marker([49.8066, 10.9643], popup="Start: Köttmannsdorfer Hauptstraße", icon=folium.Icon(color="green")).add_to(m2)
-    folium.Marker([49.8175, 10.9910], popup="Ziel: Rathaus / Zentrum Hirschaid", icon=folium.Icon(color="blue")).add_to(m2)
+    folium.PolyLine(route_koettmannsdorf_ba3, color="red", weight=5, dash_array="10", tooltip="Ausweichroute über BA 3 & Altendorf Regnitzstraße (ca. 10,8 km)").add_to(m2)
+    folium.Marker([49.8055, 10.9635], popup="Start: Köttmannsdorfer Hauptstraße", icon=folium.Icon(color="green")).add_to(m2)
+    folium.Marker([49.8162, 10.9922], popup="Ziel: Kirchplatz Hirschaid", icon=folium.Icon(color="blue")).add_to(m2)
     st_folium(m2, width=700, height=350, key="map2")
 
 # --- TAB 3: Juliushof ➔ Erlangen ---
