@@ -98,7 +98,8 @@ with tab1:
     k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
     k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
     k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
-    st.warning(f"⚠️ **Jahr hochgerechnet:** {km_j:.0f} km Umweg und {std_j:.0f} Std. Umweg-Zeit.")
+    
+    st.warning(f"⚠️ **Jahr hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** reine Umweg-Zeit pro Baujahr!")
 
     m1 = folium.Map(location=[49.835, 10.915], zoom_start=11)
     folium.PolyLine([[49.8083, 10.9540], [49.7990, 10.9268], [49.7942, 10.8852], [49.8159, 10.8661], [49.8674, 10.9052], [49.8988, 10.9028]], color="red", weight=5, dash_array="10").add_to(m1)
@@ -116,7 +117,8 @@ with tab2:
     k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
     k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
     k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
-    st.warning(f"⚠️ **Der Wahnsinn:** Für eine Strecke von ursprünglich 3 Min. werden 15-20 Min. pro Fahrt benötigt!")
+    
+    st.warning(f"⚠️ **Der Wahnsinn hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** verlost für eine Strecke, die sonst nur 3 Minuten dauert!")
 
     m2 = folium.Map(location=[49.830, 10.950], zoom_start=12)
     folium.PolyLine([[49.8260, 10.9380], [49.8550, 10.9500], [49.8168, 10.9900]], color="red", weight=5, dash_array="10").add_to(m2)
@@ -134,6 +136,8 @@ with tab3:
     k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
     k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
     k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
+    
+    st.warning(f"⚠️ **Jahr hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** zusätzlicher Zeitverlust Richtung Süden!")
 
     m3 = folium.Map(location=[49.750, 10.950], zoom_start=11)
     folium.PolyLine([[49.8020, 10.9480], [49.7900, 10.9800], [49.7700, 10.9900], [49.5960, 11.0040]], color="red", weight=5, dash_array="10").add_to(m3)
@@ -151,6 +155,8 @@ with tab4:
     k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
     k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
     k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
+    
+    st.warning(f"⚠️ **Schulweg-Belastung hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** Zeitverlust für Schüler und Elterntaxis!")
 
     m4 = folium.Map(location=[49.800, 10.950], zoom_start=12)
     folium.PolyLine([[49.7820, 10.9320], [49.7750, 10.9650], [49.8130, 10.9920]], color="red", weight=5, dash_array="10").add_to(m4)
@@ -168,6 +174,8 @@ with tab5:
     k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
     k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
     k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
+    
+    st.warning(f"⚠️ **Gesundheitsversorgung hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** Mehraufwand für Patientenfahrten!")
 
     m5 = folium.Map(location=[49.815, 10.960], zoom_start=12)
     folium.PolyLine([[49.8120, 10.9480], [49.7900, 10.9600], [49.8180, 10.9880]], color="red", weight=5, dash_array="10").add_to(m5)
@@ -185,6 +193,8 @@ with tab6:
     k1.metric("Zusatz-KM / Monat", f"{km_m:.0f} km")
     k2.metric("Mehrkosten / Monat", f"{kost_m:.2f} €")
     k3.metric("Zeitverlust / Jahr", f"{std_j:.0f} Std.")
+    
+    st.warning(f"⚠️ **P&R Pendler hochgerechnet:** Ca. **{km_j:.0f} km Umweg** und **{std_j:.0f} Stunden** Lebenszeit im Stau vor dem Zug!")
 
     m6 = folium.Map(location=[49.820, 10.920], zoom_start=12)
     folium.PolyLine([[49.8159, 10.8661], [49.7942, 10.8852], [49.7750, 10.9650], [49.8170, 10.9880]], color="red", weight=5, dash_array="10").add_to(m6)
